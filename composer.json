@@ -1,0 +1,35 @@
+{
+    "name": "lei/thinkphp5.1-crontab",
+    "description": "使用shell单一入口管理项目中的计划任务",
+    "type": "think-extend",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "chenlei",
+            "email": "chenleib5@126.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "topthink/think-installer": "^2.0",
+        "mtdowling/cron-expression": "^1.2",
+        "jenssegers/date": "^3.2"
+    },
+    "require-dev": {
+        "topthink/framework": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "lei\\cron\\": "src/cron"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "extra": {
+        "think-config": {
+            "task": "src/task",
+            "cron": "src/cron.sh"
+        }
+    }
+}
