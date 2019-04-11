@@ -32,10 +32,17 @@ abstract class Task extends Command
     }
 
     /**
-     * 配置任务
+     * 配置任务执行时间
      */
     abstract function schedule();
+    /**
+     * 配置任务执行时间
+     */
+    abstract function configure();
 
+    /**
+     * 脚本执行入口。子类需重写该类。并实现父类中的功能
+     */
     protected function execute(Input $input, Output $output)
     {
         if (!$this->isDue()) {
