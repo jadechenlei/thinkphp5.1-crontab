@@ -1,5 +1,5 @@
 {
-    "name": "lei/thinkphp5.1-crontab",
+    "name": "leistar/thinkphp5.1-crontab",
     "description": "使用shell单一入口管理项目中的计划任务",
     "type": "think-extend",
     "license": "Apache-2.0",
