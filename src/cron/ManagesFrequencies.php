@@ -1,6 +1,6 @@
 <?php
 
-namespace lei\cron;
+namespace leistar\cron;
 
 use Jenssegers\Date\Date;
 

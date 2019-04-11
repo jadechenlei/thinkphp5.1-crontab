@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lei\\cron\\": "src/cron"
+            "leistar\\cron\\": "src/cron"
         },
         "files": [
             "src/helper.php"

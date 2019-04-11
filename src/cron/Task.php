@@ -6,7 +6,7 @@
  * Time: 15:39
  */
 
-namespace lei\cron;
+namespace leistar\cron;
 
 use Cron\CronExpression;
 use Jenssegers\Date\Date;
