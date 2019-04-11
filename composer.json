@@ -2,6 +2,11 @@
     "name": "leistar/thinkphp5.1-crontab",
     "description": "使用shell单一入口管理项目中的计划任务",
     "type": "think-extend",
+    "keywords": [
+        "crontab",
+        "cron",
+        "thinkphp"
+    ],
     "license": "Apache-2.0",
     "authors": [
         {
@@ -21,15 +26,6 @@
     "autoload": {
         "psr-4": {
             "leistar\\cron\\": "src/cron"
-        },
-        "files": [
-            "src/helper.php"
-        ]
-    },
-    "extra": {
-        "think-config": {
-            "task": "src/task",
-            "cron": "src/cron.sh"
         }
     }
 }
