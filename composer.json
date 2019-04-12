@@ -1,6 +1,6 @@
 {
-    "name": "leistar/thinkphp5.1-crontab",
-    "description": "使用shell单一入口管理项目中的计划任务",
+    "name": "leistar/thinkphp-crontab",
+    "description": "使用shell单一入口管理thinkphp5.1项目中的计划任务",
     "type": "think-extend",
     "keywords": [
         "crontab",
