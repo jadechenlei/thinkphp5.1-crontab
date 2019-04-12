@@ -2,10 +2,18 @@
 
 namespace leistar\cron;
 
+use Cron\CronExpression;
 use Jenssegers\Date\Date;
 
 trait ManagesFrequencies
 {
+
+    /** @var \DateTimeZone|string 时区 */
+    public $timezone;
+
+    /** @var string 任务周期 */
+    public $expression = '* * * * * *';
+
     /**
      * 设置任务执行周期
      *
@@ -107,8 +115,8 @@ trait ManagesFrequencies
     {
         $segments = explode(':', $time);
 
-        return $this->spliceIntoPosition(2, (int) $segments[0])
-            ->spliceIntoPosition(1, count($segments) == 2 ? (int) $segments[1] : '0');
+        return $this->spliceIntoPosition(2, (int)$segments[0])
+            ->spliceIntoPosition(1, count($segments) == 2 ? (int)$segments[1] : '0');
     }
 
     /**
@@ -231,7 +239,7 @@ trait ManagesFrequencies
     /**
      * 指定每周的时间执行
      *
-     * @param  int    $day
+     * @param  int $day
      * @param  string $time
      * @return $this
      */
@@ -257,7 +265,7 @@ trait ManagesFrequencies
     /**
      * 指定每月的执行时间
      *
-     * @param  int    $day
+     * @param  int $day
      * @param  string $time
      * @return $this
      */
@@ -383,5 +391,15 @@ trait ManagesFrequencies
         $segments[$position - 1] = $value;
 
         return $this->expression(implode(' ', $segments));
+    }
+
+    /**
+     * 是否到期执行
+     * @return bool
+     */
+    private function isDue()
+    {
+        $date = Date::now($this->timezone);
+        return CronExpression::factory($this->expression)->isDue($date->toDateTimeString());
     }
 }

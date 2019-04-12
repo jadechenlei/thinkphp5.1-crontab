@@ -9,18 +9,23 @@
 namespace app\common\command;
 
 
-use leistar\cron\Task;
+use leistar\cron\ManagesFrequencies;
+use think\console\Command;
 use think\console\Input;
 use think\console\input\Argument;
 use think\console\input\Option;
 use think\console\Output;
 
-class Hello extends Task
+class Hello extends Command
 {
-    public function schedule()
+    use ManagesFrequencies;
+
+    public function initialize(Input $input, Output $output)
     {
+        parent::initialize($input, $output);
         $this->everyFiveMinutes();
     }
+
     protected function configure()
     {
         $this->setName('hello')
@@ -31,7 +36,11 @@ class Hello extends Task
 
     protected function execute(Input $input, Output $output)
     {
-        parent::execute($input, $output);
+        if (!$this->isDue()) {
+            return false;
+        }
+
+        //下面是你自己的逻辑代码
         $name = trim($input->getArgument('name'));
         $name = $name ?: 'thinkphp';
 
